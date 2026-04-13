@@ -1,9 +1,11 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
     private Scanner input = new Scanner(System.in);
     private BookStorage bookStorage = new BookStorage();
     private GoogleBooksQuery googleBooksQuery = new GoogleBooksQuery();
+    private BookFileGenerator bookFileGenerator = new BookFileGenerator();
 
     public void initializeMenu() {
 
@@ -116,6 +118,7 @@ public class Menu {
             GoogleBooks response = googleBooksQuery.bookQuery(title);
             Book book = googleBooksQuery.convertToBook(response);
             if (bookStorage.addBook(book)) {
+                bookFileGenerator.jsonGenerator(response);
                 System.out.println("O livro " + book.getTitle() + " foi encontrado e adicionado com sucesso!");
             } else {
                 System.out.println("Esse livro ja está cadastrado.");
@@ -123,6 +126,8 @@ public class Menu {
 
         } catch (BookQueryError e) {
             System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Erro ao gerar arquivo JSON.");
         }
     }
 }
