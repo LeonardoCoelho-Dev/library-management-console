@@ -1,6 +1,6 @@
 # 📚 Library Management Console
 
-Projeto de estudos em Java para gerenciamento de livros no console, com cadastro manual, empréstimo, devolução e integração com a Google Books API.
+Projeto de estudos em Java para gerenciamento de livros no console, com cadastro manual, empréstimo, devolução, integração com a Google Books API e geração de arquivos JSON.
 
 ---
 
@@ -11,6 +11,7 @@ Projeto de estudos em Java para gerenciamento de livros no console, com cadastro
 - Emprestar livro
 - Devolver livro
 - Buscar livro na Google Books API
+- Gerar arquivo JSON com os dados do livro
 - Impedir cadastro duplicado pelo título
 - Exibir status do livro (Disponível / Emprestado)
 
@@ -18,11 +19,12 @@ Projeto de estudos em Java para gerenciamento de livros no console, com cadastro
 
 ## 🛠️ Tecnologias utilizadas
 
-- Java
-- HttpClient
-- Gson
-- Google Books API
-- Git e GitHub
+- Java  
+- HttpClient  
+- Gson  
+- Google Books API  
+- FileWriter (geração de arquivos)  
+- Git e GitHub  
 
 ---
 
@@ -38,6 +40,7 @@ src/
  ├── GoogleBooks.java
  ├── GoogleBooksItem.java
  ├── GoogleBooksVolumeInfo.java
+ ├── BookFileGenerator.java
  └── BookQueryError.java
 ```
 
@@ -47,14 +50,15 @@ src/
 
 Este projeto foi desenvolvido com o objetivo de praticar:
 
-- Orientação a objetos
-- Listas e armazenamento em memória
-- Regras de negócio
-- Tratamento de exceções
-- Consumo de APIs
-- Manipulação de JSON
-- Organização em classes
-- Versionamento com Git
+- Orientação a objetos  
+- Listas e armazenamento em memória  
+- Regras de negócio  
+- Tratamento de exceções  
+- Consumo de APIs  
+- Manipulação de JSON  
+- Escrita de arquivos  
+- Organização em classes  
+- Versionamento com Git  
 
 ---
 
@@ -62,16 +66,19 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 
 ### Cadastro manual
 O usuário pode cadastrar livros informando:
-- título
-- autor
+- título  
+- autor  
 
 ### Controle de empréstimo
 Cada livro possui um estado:
-- Disponível
-- Emprestado
+- Disponível  
+- Emprestado  
 
 ### Integração com API
-O sistema também permite buscar livros na Google Books API e adicioná-los automaticamente ao catálogo.
+O sistema permite buscar livros na Google Books API e adicioná-los automaticamente ao catálogo.
+
+### Geração de JSON
+Ao buscar um livro na API, o sistema gera automaticamente um arquivo `.json` com os dados do livro.
 
 ---
 
@@ -92,11 +99,12 @@ git clone https://github.com/LeonardoCoelho-Dev/library-management-console.git
 ## 📌 Status
 
 ✅ Projeto finalizado como estudo intermediário em Java  
-🚀 Melhorias futuras podem incluir persistência em arquivo ou banco de dados
+🚀 Possui integração com API e geração de arquivos JSON  
+🚀 Possíveis melhorias futuras: persistência em banco de dados ou leitura de arquivos JSON  
 
 ---
 
 ## 👨‍💻 Autor
 
 Leonardo Coelho  
-Estudante de Sistemas da Informação
+Estudante de Sistemas da Informação  
